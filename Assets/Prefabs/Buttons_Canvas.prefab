@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 5368393248068335892}
   - component: {fileID: 5368393248068335893}
   - component: {fileID: 5368393248068335882}
+  - component: {fileID: 5402105409890871166}
   m_Layer: 5
   m_Name: Continue_Button
   m_TagString: Untagged
@@ -349,7 +350,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5368393248068335893}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5402105409890871166}
+        m_TargetAssemblyTypeName: ContinueButton, Assembly-CSharp
+        m_MethodName: RestartScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5402105409890871166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5368393248068335880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edd1b853d79010c49945765e787037b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5368393248277665404
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,4 +521,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596f72bee974f4147bcd20baa81adb8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _diceSprite: {fileID: 0}

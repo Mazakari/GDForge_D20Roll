@@ -38,6 +38,7 @@ public class CanvasService: MonoBehaviour
         RollDice.OnRollBegin += _diceInfoCanvas.DeactivateHint;
         RollDice.OnRollResultGenerated += _diceCanvas.SetSprite;
         RollDice.OnRollResultGenerated += _diceInfoCanvas.ShowResultText;
+        RollDice.OnRollEnd += _buttonsCanvas.ActivateContinueButton;
     }
     private void UnsubscribeCallbacks()
     {
@@ -45,5 +46,6 @@ public class CanvasService: MonoBehaviour
         RollDice.OnRollBegin -= _diceInfoCanvas.DeactivateHint;
         RollDice.OnRollResultGenerated -= _diceCanvas.SetSprite;
         RollDice.OnRollResultGenerated -= _diceInfoCanvas.ShowResultText;
+        RollDice.OnRollEnd -= _buttonsCanvas.ActivateContinueButton;
     }
 }

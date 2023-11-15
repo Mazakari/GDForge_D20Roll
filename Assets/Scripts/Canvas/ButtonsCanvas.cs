@@ -23,6 +23,9 @@ public class ButtonsCanvas : MonoBehaviour
     public void DeactivateRollButton() =>
        ButtonIsActive(_rollDiceButton, false);
 
+    public void ActivateContinueButton() =>
+      ButtonIsActive(_continueButton, true);
+
     private void ButtonIsActive(Button button, bool isActive)
     {
         try
