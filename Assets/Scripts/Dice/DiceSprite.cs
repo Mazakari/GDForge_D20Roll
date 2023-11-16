@@ -3,19 +3,20 @@ using UnityEngine.UI;
 
 public class DiceSprite : MonoBehaviour
 {
-    [SerializeField] private Sprite[] _sideSprites;
-
     [SerializeField] private Image _image;
+    private Sprite[] _sideSprites;
 
-    public void InitSprite()
+    private IRollDiceService _rollService;
+
+    public void InitDice()
     {
+        _rollService = AllServices.Container.Single<IRollDiceService>();
+
         try
         {
+            _sideSprites = _rollService.DiceSettings.sideSprites;
             int lastSpriteIndex = _sideSprites.Length - 1;
             SetSpriteByIndex(lastSpriteIndex);
-
-            RollService.DiceSides = _sideSprites.Length;
-
         }
         catch (System.Exception e)
 		{

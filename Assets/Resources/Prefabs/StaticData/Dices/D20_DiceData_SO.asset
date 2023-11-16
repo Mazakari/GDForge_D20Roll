@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d29eed212b284a4498123ef72873d7c, type: 3}
+  m_Name: D20_DiceData_SO
+  m_EditorClassIdentifier: 
+  sidesAmount: 20
+  sideSprites:
+  - {fileID: 712815816, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 1498864179, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 1884652788, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 830337378, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -1869969697, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -1406020161, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 175804284, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 613408699, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -1773030984, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -499817368, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -1946077240, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -15435011, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -485640378, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -1328444166, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 845277555, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 618819184, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 1326995781, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 254954099, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 940827950, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 754897822, guid: 112621af596467744be536472245898c, type: 3}
+  rollAnimationSprites:
+  - {fileID: -960462968, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 918509101, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -2135060611, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: 111336447, guid: 112621af596467744be536472245898c, type: 3}
+  - {fileID: -75820458, guid: 112621af596467744be536472245898c, type: 3}
