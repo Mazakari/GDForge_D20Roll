@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,9 +9,13 @@ public class DiceSprite : MonoBehaviour
 
     private IRollDiceService _rollService;
 
+    private void OnDisable() =>
+       UnsubscribeRollStateCallbacks();
+
     public void InitDice()
     {
         _rollService = AllServices.Container.Single<IRollDiceService>();
+        SubscribeRollStateCallbacks();
 
         try
         {
@@ -19,11 +24,57 @@ public class DiceSprite : MonoBehaviour
             SetSpriteByIndex(lastSpriteIndex);
         }
         catch (System.Exception e)
-		{
-			Debug.Log(e.Message);
-		}
+        {
+            Debug.Log(e.Message);
+        }
     }
 
-    public void SetSpriteByIndex(int index) => 
-        _image.sprite = _sideSprites[index];
+    public void SetSpriteByIndex(int index)
+    {
+        try
+        {
+            _image.sprite = _sideSprites[index];
+        }
+        catch (Exception e)
+        {
+
+            Debug.Log(e.Message);
+        }
+    }
+
+    private void ActivateDiceImage()
+    {
+        try
+        {
+            _image.enabled = true;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+        
+    }
+
+    private void DeactivateDiceImage()
+    {
+        try
+        {
+            _image.enabled = false;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
+
+    private void SubscribeRollStateCallbacks()
+    {
+        RollDice.OnRollBegin += DeactivateDiceImage;
+        UIDiceRollAnimation.OnRollEnd += ActivateDiceImage;
+    }
+    private void UnsubscribeRollStateCallbacks()
+    {
+        RollDice.OnRollBegin -= DeactivateDiceImage;
+        UIDiceRollAnimation.OnRollEnd -= ActivateDiceImage;
+    }
 }

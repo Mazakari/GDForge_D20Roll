@@ -7,7 +7,7 @@ public class GameplayCanvas : MonoBehaviour
     [SerializeField] private DifficultyClassCanvas _difficultyCanvas;
     [SerializeField] private DiceInfoCanvas _diceInfoCanvas;
 
-    void Start()
+    void OnEnable()
     {
         InitCanvases();
 
@@ -28,7 +28,6 @@ public class GameplayCanvas : MonoBehaviour
         }
         catch (System.Exception e)
         {
-
             Debug.Log(e.Message);
         }
     }
@@ -37,7 +36,8 @@ public class GameplayCanvas : MonoBehaviour
         RollDice.OnRollBegin += _buttonsCanvas.DeactivateRollButton;
         RollDice.OnRollBegin += _diceInfoCanvas.DeactivateHint;
         RollDice.OnRollResultGenerated += _diceCanvas.SetSprite;
-        RollDice.OnRollResultGenerated += _diceInfoCanvas.ShowResultText;
+
+        UIDiceRollAnimation.OnRollEnd += _diceInfoCanvas.ShowResultText;
         UIDiceRollAnimation.OnRollEnd += _buttonsCanvas.ActivateContinueButton;
     }
     private void UnsubscribeCallbacks()
@@ -45,7 +45,8 @@ public class GameplayCanvas : MonoBehaviour
         RollDice.OnRollBegin -= _buttonsCanvas.DeactivateRollButton;
         RollDice.OnRollBegin -= _diceInfoCanvas.DeactivateHint;
         RollDice.OnRollResultGenerated -= _diceCanvas.SetSprite;
-        RollDice.OnRollResultGenerated -= _diceInfoCanvas.ShowResultText;
+
+        UIDiceRollAnimation.OnRollEnd -= _diceInfoCanvas.ShowResultText;
         UIDiceRollAnimation.OnRollEnd -= _buttonsCanvas.ActivateContinueButton;
     }
 }

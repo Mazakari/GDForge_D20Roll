@@ -8,9 +8,7 @@ public class RollDice : MonoBehaviour
 
     private IRollDiceService _rollService;
 
-    private void OnEnable() => 
-        _rollService = AllServices.Container.Single<IRollDiceService>();
-
+    private void OnEnable() => GetServiceReference();
 
     public void Roll()
     {
@@ -30,4 +28,6 @@ public class RollDice : MonoBehaviour
 
     private int GetRollResult() =>
         UnityEngine.Random.Range(0, _rollService.DiceSides);
+    private void GetServiceReference() =>
+        _rollService = AllServices.Container.Single<IRollDiceService>();
 }

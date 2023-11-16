@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -9,13 +10,20 @@ public class DiceInfoCanvas : MonoBehaviour
     [SerializeField] private TMP_Text _successText;
     [SerializeField] private TMP_Text _failText;
 
+    private int _rollValue = 0;
+
     private IRollDiceService _rollService;
 
     public void Init()
     {
+        SubscribeRollCallbacks();
+
         GetServicesReferences();
         ActivateHint();
     }
+  
+    private void OnDisable() => 
+        UnsubscribeRollCallbacks();
 
     public void ShowSucessText(bool success)
     {
@@ -26,7 +34,7 @@ public class DiceInfoCanvas : MonoBehaviour
 
             _rollResult.SetActive(true);
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }
@@ -56,14 +64,14 @@ public class DiceInfoCanvas : MonoBehaviour
         }
     }
 
-    public void ShowResultText(int rollResult)
+    public void ShowResultText()
     {
         try
         {
-            bool success = rollResult > _rollService.RollDifficulty;
+            bool success = _rollValue > _rollService.RollDifficulty;
             ShowSucessText(success);
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
 
             Debug.Log(e.Message);
@@ -71,4 +79,12 @@ public class DiceInfoCanvas : MonoBehaviour
     }
     private void GetServicesReferences() =>
        _rollService = AllServices.Container.Single<IRollDiceService>();
+
+    private void SaveRollResult(int result) =>
+       _rollValue = result;
+
+    private void SubscribeRollCallbacks() =>
+      RollDice.OnRollResultGenerated += SaveRollResult;
+    private void UnsubscribeRollCallbacks() =>
+       RollDice.OnRollResultGenerated -= SaveRollResult;
 }

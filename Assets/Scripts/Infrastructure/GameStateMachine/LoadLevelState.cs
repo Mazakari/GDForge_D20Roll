@@ -42,10 +42,8 @@ public class LoadLevelState : IPayloadedState<string>
         _gameStateMachine.Enter<GameLoopState>();
     }
 
-    private void InitHUD()
-    {
+    private void InitHUD() => 
         _gameFactory.CreateLevelHud();
-    }
 
     private void InitGameWorld() => 
         SetRollDifficulty();

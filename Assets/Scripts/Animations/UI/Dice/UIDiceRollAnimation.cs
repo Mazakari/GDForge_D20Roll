@@ -23,16 +23,23 @@ public class UIDiceRollAnimation : MonoBehaviour
     private void OnEnable()
     {
         GetServiceReference();
-        SubscribeAnimationCallbacks();
+
         ResetCurrentAnimationSpriteIndex();
         SetAnimationSpritesReference();
         InitAnumationCoroutine();
+        DisableAnimationImage();
     }
 
-    private void OnDisable() => 
-        UnsubscribeAnimationCallbacks();
+    public void StartAnimation()
+    {
+        EnableAnimationImage();
+        _active = true;
+        StartCoroutine(_animationCoroutine);
+    }
+
     private void GetServiceReference() =>
        _rollService = AllServices.Container.Single<IRollDiceService>();
+
     private void SetAnimationSpritesReference()
     {
         try
@@ -44,7 +51,6 @@ public class UIDiceRollAnimation : MonoBehaviour
 
             Debug.Log(e.Message);
         }
-       
     }
 
     private void InitAnumationCoroutine()
@@ -69,6 +75,7 @@ public class UIDiceRollAnimation : MonoBehaviour
             IncrementCurrentSpriteIndex();
         }
     }
+
     private void ChangeSprite()
     {
         try
@@ -90,21 +97,15 @@ public class UIDiceRollAnimation : MonoBehaviour
             _active = false;
 
             OnRollEnd?.Invoke();
-            gameObject.SetActive(false);
+            DisableAnimationImage();
         }
-    }
-
-    private void StartAnimation()
-    {
-        _active = true;
-        StartCoroutine(_animationCoroutine);
     }
 
     private void ResetCurrentAnimationSpriteIndex() =>
        _currentIndex = 0;
 
-    private void SubscribeAnimationCallbacks() =>
-     RollDice.OnRollBegin += StartAnimation;
-    private void UnsubscribeAnimationCallbacks() =>
-       RollDice.OnRollBegin -= StartAnimation;
+    private void EnableAnimationImage() =>
+       _image.enabled = true;
+    private void DisableAnimationImage() =>
+       _image.enabled = false;
 }
