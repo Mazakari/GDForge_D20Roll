@@ -20,11 +20,11 @@ public class BootstrapState : IState
         SetFpsTarget();
 
         Debug.Log("BootstrapState");
-        _sceneLoader.Load(Constants.INITIAL_SCENE_NAME, onLoaded: EnterLoadLevel);
+        _sceneLoader.Load(SceneConstants.INITIAL_SCENE_NAME, onLoaded: EnterLoadLevel);
     }
 
     private void EnterLoadLevel() =>
-        _gameStateMachine.Enter<LoadLevelState, string>(Constants.FIRST_LEVEL_NAME);
+        _gameStateMachine.Enter<LoadLevelState, string>(SceneConstants.FIRST_LEVEL_NAME);
 
     public void Exit() {}
 
@@ -33,6 +33,7 @@ public class BootstrapState : IState
         _services.RegisterSingle<IAssets>(new AssetProvider());
         _services.RegisterSingle<IGameFactory>(new GameFactory(_services.Single<IAssets>()));
         _services.RegisterSingle<IRollDiceService>(new RollDiceService(_services.Single<IGameFactory>()));
+        _services.RegisterSingle<IModifierService>(new ModifierService(_services.Single<IGameFactory>()));
     }
 
     // System Settings

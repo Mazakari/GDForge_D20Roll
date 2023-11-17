@@ -4,5 +4,6 @@ public interface IRollDiceService : IService
     int RollDifficulty { get; }
     DiceData_SO DiceSettings { get; }
 
+    int RollDice();
     void SetRandomRollDifficulty();
 }

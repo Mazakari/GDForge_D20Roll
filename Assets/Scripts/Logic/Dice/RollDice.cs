@@ -16,7 +16,7 @@ public class RollDice : MonoBehaviour
 
         try
         {
-            int result = GetRollResult();
+            int result = _rollService.RollDice();
 
             OnRollResultGenerated?.Invoke(result);
         }
@@ -26,8 +26,6 @@ public class RollDice : MonoBehaviour
         }
     }
 
-    private int GetRollResult() =>
-        UnityEngine.Random.Range(0, _rollService.DiceSides);
     private void GetServiceReference() =>
         _rollService = AllServices.Container.Single<IRollDiceService>();
 }

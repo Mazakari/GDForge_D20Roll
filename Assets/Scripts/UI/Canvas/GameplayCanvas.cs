@@ -6,6 +6,7 @@ public class GameplayCanvas : MonoBehaviour
     [SerializeField] private ButtonsCanvas _buttonsCanvas;
     [SerializeField] private DifficultyClassCanvas _difficultyCanvas;
     [SerializeField] private DiceInfoCanvas _diceInfoCanvas;
+    [SerializeField] private ModifiersCanvas _modifiersCanvas;
 
     void OnEnable()
     {
@@ -25,6 +26,7 @@ public class GameplayCanvas : MonoBehaviour
             _buttonsCanvas.Init();
             _difficultyCanvas.Init();
             _diceInfoCanvas.Init();
+            _modifiersCanvas.Init();
         }
         catch (System.Exception e)
         {

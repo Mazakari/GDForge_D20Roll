@@ -1,7 +1,4 @@
-﻿
-using UnityEngine;
-
-public class Constants
+﻿public class SceneConstants
 {
     #region NEW PROGRESS DATA
     public const string INITIAL_SCENE_NAME = "Initial";

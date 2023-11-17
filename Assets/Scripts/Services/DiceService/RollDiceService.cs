@@ -32,9 +32,12 @@ public class RollDiceService : IRollDiceService
         SetRandomRollDifficulty();
     }
 
-    public void SetRandomRollDifficulty()
-    {
-        int rnd = Random.Range(0, DiceSides);
-        RollDifficulty = rnd;
-    }
+    public void SetRandomRollDifficulty() => 
+        RollDifficulty = Random.Range(0, DiceSides);
+
+    public int RollDice() =>
+        GetRollResult();
+
+    private int GetRollResult() =>
+       Random.Range(0, DiceSides);
 }

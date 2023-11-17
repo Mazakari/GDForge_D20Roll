@@ -3,9 +3,6 @@
 public interface IAssets : IService
 {
     DiceData_SO GetDiceData(string dataPath);
+    ModifierData_SO[] GetModifiersData(string dataPath);
     GameObject Instantiate(string path);
-    GameObject Instantiate(string path, Vector3 at);
-    GameObject Instantiate(string path, Transform parent);
-    GameObject Instantiate(GameObject prefab, Vector2 at);
-
 }

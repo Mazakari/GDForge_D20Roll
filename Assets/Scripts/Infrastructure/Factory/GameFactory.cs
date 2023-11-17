@@ -16,37 +16,12 @@ public class GameFactory : IGameFactory
     public DiceData_SO GetDiceStaticData(string dataPath) => 
         _assets.GetDiceData(dataPath);
 
+    public ModifierData_SO[] GetModifiersStaticData(string dataPath) =>
+        _assets.GetModifiersData(dataPath);
+
     private GameObject InstantiatePrefab(string prefabPath)
     {
         GameObject obj = _assets.Instantiate(prefabPath);
-
-        return obj;
-    }
-
-
-
-
-
-
-    private GameObject InstantiateRegistered(string prefabPath, Transform parent)
-    {
-        GameObject obj = _assets.Instantiate(prefabPath, parent);
-
-        return obj;
-    }
-
-    private GameObject InstantiateRegistered(string prefabPath, Vector2 at)
-    {
-        GameObject obj = _assets.Instantiate(prefabPath, at);
-
-        return obj;
-    }
-
-   
-
-    private GameObject InstantiateRegistered(GameObject prefab, Vector2 at)
-    {
-        GameObject obj = _assets.Instantiate(prefab, at);
 
         return obj;
     }

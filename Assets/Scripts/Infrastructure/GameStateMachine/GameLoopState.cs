@@ -18,7 +18,7 @@ public class GameLoopState : IState
         UnsubscribeUICallbacks();
 
     private void RestartLevel() =>
-        _gameStateMachine.Enter<LoadLevelState, string>(Constants.FIRST_LEVEL_NAME);
+        _gameStateMachine.Enter<LoadLevelState, string>(SceneConstants.FIRST_LEVEL_NAME);
 
     private void SubscribeUICallbacks() =>
        ContinueButton.OnContinueButtonPress += RestartLevel;
