@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UIDiceRollAnimation : MonoBehaviour
 {
-    public static event Action OnRollEnd;
+    public static event Action OnRollAnimationEnd;
 
     [SerializeField] private Image _image;
 
@@ -82,7 +82,7 @@ public class UIDiceRollAnimation : MonoBehaviour
         {
             _image.sprite = _sprites[_currentIndex];
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }
@@ -96,7 +96,7 @@ public class UIDiceRollAnimation : MonoBehaviour
             ResetCurrentAnimationSpriteIndex();
             _active = false;
 
-            OnRollEnd?.Invoke();
+            OnRollAnimationEnd?.Invoke();
             DisableAnimationImage();
         }
     }

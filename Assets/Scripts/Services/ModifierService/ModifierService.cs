@@ -16,19 +16,6 @@ public class ModifierService : IModifierService
 
         InitService();
     }
-
-    private void InitService()
-    {
-        try
-        {
-            _modifiersData = _gameFactory.GetModifiersStaticData(AssetPath.MODIFIERS_STATIC_DATA_FOLDER);
-        }
-        catch (System.Exception e)
-        {
-            Debug.Log(e.Message);
-        }
-    }
-
     public void ConstructModifier(Modifier modifier)
     {
         for (int i = 0; i < _modifiersData.Length; i++)
@@ -65,6 +52,17 @@ public class ModifierService : IModifierService
         return total;
     }
 
+    private void InitService()
+    {
+        try
+        {
+            _modifiersData = _gameFactory.GetModifiersStaticData(AssetPath.MODIFIERS_STATIC_DATA_FOLDER);
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
     private void SetTotalBonus(int total) => 
         TotalBonus = total;
 }

@@ -10,8 +10,6 @@ public class DiceInfoCanvas : MonoBehaviour
     [SerializeField] private TMP_Text _successText;
     [SerializeField] private TMP_Text _failText;
 
-    private int _rollValue = 0;
-
     private IRollDiceService _rollService;
 
     public void Init()
@@ -68,7 +66,7 @@ public class DiceInfoCanvas : MonoBehaviour
     {
         try
         {
-            bool success = _rollValue > _rollService.RollDifficulty;
+            bool success = _rollService.RollResult > _rollService.RollDifficulty;
             ShowSucessText(success);
         }
         catch (Exception e)
@@ -81,7 +79,7 @@ public class DiceInfoCanvas : MonoBehaviour
        _rollService = AllServices.Container.Single<IRollDiceService>();
 
     private void SaveRollResult(int result) =>
-       _rollValue = result;
+       _rollService.SaveRollResult(result);
 
     private void SubscribeRollCallbacks() =>
       RollDice.OnRollResultGenerated += SaveRollResult;

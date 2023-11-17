@@ -45,12 +45,14 @@ public class LoadLevelState : IPayloadedState<string>
         _gameStateMachine.Enter<GameLoopState>();
     }
 
-    private void InitHUD() => 
+    private void InitHUD()
+    {
+        SetRollDifficulty();
         _gameFactory.CreateLevelHud();
+    }
 
     private void InitGameWorld()
     {
-        SetRollDifficulty();
         SetModifierServiceActiveModifiers();
         UpdateTotalBonusCounter();
     }

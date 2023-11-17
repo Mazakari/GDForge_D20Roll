@@ -9,12 +9,14 @@ public class DiceSprite : MonoBehaviour
 
     private IRollDiceService _rollService;
 
+    public static event Action OnModifiedSpriteSet;
+
     private void OnDisable() =>
        UnsubscribeRollStateCallbacks();
 
     public void InitDice()
     {
-        _rollService = AllServices.Container.Single<IRollDiceService>();
+        GetServiceReference();
         SubscribeRollStateCallbacks();
 
         try
@@ -33,7 +35,31 @@ public class DiceSprite : MonoBehaviour
     {
         try
         {
-            _image.sprite = _sideSprites[index];
+            if (index < _sideSprites.Length)
+            {
+                _image.sprite = _sideSprites[index];
+            }
+           
+        }
+        catch (Exception e)
+        {
+
+            Debug.Log(e.Message);
+        }
+    }
+
+    public void SetModifiedSpriteByIndex(int index)
+    {
+        try
+        {
+            if (index >= _sideSprites.Length)
+            {
+                index = _sideSprites.Length;
+            }
+
+            _image.sprite = _sideSprites[index - 1];
+
+            OnModifiedSpriteSet?.Invoke();
         }
         catch (Exception e)
         {
@@ -70,11 +96,14 @@ public class DiceSprite : MonoBehaviour
     private void SubscribeRollStateCallbacks()
     {
         RollDice.OnRollBegin += DeactivateDiceImage;
-        UIDiceRollAnimation.OnRollEnd += ActivateDiceImage;
+        UIDiceRollAnimation.OnRollAnimationEnd += ActivateDiceImage;
     }
     private void UnsubscribeRollStateCallbacks()
     {
         RollDice.OnRollBegin -= DeactivateDiceImage;
-        UIDiceRollAnimation.OnRollEnd -= ActivateDiceImage;
+        UIDiceRollAnimation.OnRollAnimationEnd -= ActivateDiceImage;
     }
+
+    private void GetServiceReference() =>
+       _rollService = AllServices.Container.Single<IRollDiceService>();
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DiceCanvas : MonoBehaviour
@@ -20,4 +21,7 @@ public class DiceCanvas : MonoBehaviour
 
     public void SetSprite(int index) =>
         _diceSprite.SetSpriteByIndex(index);
+
+    public void SetModifierSprite(int index) =>
+    _diceSprite.SetModifiedSpriteByIndex(index);
 }

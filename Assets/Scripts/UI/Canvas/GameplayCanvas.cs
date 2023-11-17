@@ -1,22 +1,22 @@
+using System;
 using UnityEngine;
 
 public class GameplayCanvas : MonoBehaviour
 {
+    public DiceCanvas DiceCanvas =>_diceCanvas;
     [SerializeField] private DiceCanvas _diceCanvas;
+
+    public ButtonsCanvas ButtonsCanvas => _buttonsCanvas;
     [SerializeField] private ButtonsCanvas _buttonsCanvas;
-    [SerializeField] private DifficultyClassCanvas _difficultyCanvas;
+
+    public DiceInfoCanvas DiceInfoCanvas => _diceInfoCanvas;
     [SerializeField] private DiceInfoCanvas _diceInfoCanvas;
+
+    [SerializeField] private DifficultyClassCanvas _difficultyCanvas;
     [SerializeField] private ModifiersCanvas _modifiersCanvas;
 
-    void OnEnable()
-    {
+    void OnEnable() => 
         InitCanvases();
-
-        SubscribeCallbacks();
-    }
-
-    private void OnDisable() =>
-        UnsubscribeCallbacks();
 
     private void InitCanvases()
     {
@@ -28,27 +28,9 @@ public class GameplayCanvas : MonoBehaviour
             _diceInfoCanvas.Init();
             _modifiersCanvas.Init();
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }
-    }
-    private void SubscribeCallbacks()
-    {
-        RollDice.OnRollBegin += _buttonsCanvas.DeactivateRollButton;
-        RollDice.OnRollBegin += _diceInfoCanvas.DeactivateHint;
-        RollDice.OnRollResultGenerated += _diceCanvas.SetSprite;
-
-        UIDiceRollAnimation.OnRollEnd += _diceInfoCanvas.ShowResultText;
-        UIDiceRollAnimation.OnRollEnd += _buttonsCanvas.ActivateContinueButton;
-    }
-    private void UnsubscribeCallbacks()
-    {
-        RollDice.OnRollBegin -= _buttonsCanvas.DeactivateRollButton;
-        RollDice.OnRollBegin -= _diceInfoCanvas.DeactivateHint;
-        RollDice.OnRollResultGenerated -= _diceCanvas.SetSprite;
-
-        UIDiceRollAnimation.OnRollEnd -= _diceInfoCanvas.ShowResultText;
-        UIDiceRollAnimation.OnRollEnd -= _buttonsCanvas.ActivateContinueButton;
     }
 }

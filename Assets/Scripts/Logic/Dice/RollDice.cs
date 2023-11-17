@@ -8,7 +8,8 @@ public class RollDice : MonoBehaviour
 
     private IRollDiceService _rollService;
 
-    private void OnEnable() => GetServiceReference();
+    private void OnEnable() => 
+        GetServiceReference();
 
     public void Roll()
     {
@@ -19,6 +20,7 @@ public class RollDice : MonoBehaviour
             int result = _rollService.RollDice();
 
             OnRollResultGenerated?.Invoke(result);
+            Debug.Log($"Roll result = {result}");
         }
         catch (Exception e)
         {

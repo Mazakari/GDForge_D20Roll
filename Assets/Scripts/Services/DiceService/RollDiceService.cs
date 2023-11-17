@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 public class RollDiceService : IRollDiceService
 {
@@ -6,7 +7,11 @@ public class RollDiceService : IRollDiceService
 
     public DiceData_SO DiceSettings { get; private set; }
 
+    public int RollResult {  get; private set; }
+
     private readonly IGameFactory _gameFactory;
+
+    public event Action<int> OnModifierBonusAdded;
 
     public RollDiceService(IGameFactory gameFactory)
     {
@@ -25,19 +30,30 @@ public class RollDiceService : IRollDiceService
         }
         catch (System.Exception e)
         {
-
             Debug.Log(e.Message);
         }
-
-        SetRandomRollDifficulty();
     }
 
-    public void SetRandomRollDifficulty() => 
-        RollDifficulty = Random.Range(0, DiceSides);
+    public void SetRandomRollDifficulty()
+    {
+        RollDifficulty = UnityEngine.Random.Range(1, DiceSides + 1);
+        Debug.Log($"Roll difficulty = {RollDifficulty}");
+    }
 
     public int RollDice() =>
         GetRollResult();
 
+    public void SaveRollResult(int result) => 
+        RollResult = result;
+
+    public void AddModifierBonusToRollResult(int bonus)
+    {
+        Debug.Log($"Roll result = {RollResult} + Bonus = {bonus}");
+        RollResult += bonus;
+        Debug.Log($"Roll+Bonus = {RollResult}");
+        OnModifierBonusAdded?.Invoke(RollResult);
+    }
+
     private int GetRollResult() =>
-       Random.Range(0, DiceSides);
+       UnityEngine.Random.Range(1, DiceSides + 1);
 }
