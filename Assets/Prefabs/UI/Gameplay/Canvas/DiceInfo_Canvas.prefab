@@ -260,6 +260,7 @@ GameObject:
   - component: {fileID: 5832759405741264216}
   - component: {fileID: 5832759405741264217}
   - component: {fileID: 5832759405741264218}
+  - component: {fileID: 7908738442407506914}
   m_Layer: 5
   m_Name: DiceInfo_Canvas
   m_TagString: Untagged
@@ -326,6 +327,25 @@ MonoBehaviour:
   _rollResult: {fileID: 5832759404815538364}
   _successText: {fileID: 5832759405144953716}
   _failText: {fileID: 5832759406168206422}
+  _fadeAnimation: {fileID: 7908738442407506914}
+--- !u!114 &7908738442407506914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5832759405741264167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55de85be5e2e22409eb53c8ff8fdd97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationCanvasGroup: {fileID: 6277875252860480617}
+  _fadeInStep: 0.01
+  _showStartDelay: 1.5
+  _showStartAlpha: 0
+  _hideStartDelay: 0
+  _hideStartAlpha: 1
 --- !u!1 &5832759405800896269
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,6 +355,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5832759405800896270}
+  - component: {fileID: 6277875252860480617}
   m_Layer: 5
   m_Name: RollDiceHint_Block
   m_TagString: Untagged
@@ -364,6 +385,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0}
+--- !u!225 &6277875252860480617
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5832759405800896269}
+  m_Enabled: 1
+  m_Alpha: 0.19
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5832759406168206420
 GameObject:
   m_ObjectHideFlags: 0

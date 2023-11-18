@@ -12,12 +12,17 @@ public class DiceInfoCanvas : MonoBehaviour
 
     private IRollDiceService _rollService;
 
+    [Space(10)]
+    [Header("UI Animation")]
+    [SerializeField] private UiFadeAnimation _fadeAnimation;
+
     public void Init()
     {
         SubscribeRollCallbacks();
 
         GetServicesReferences();
         ActivateHint();
+        PlayUIShowModifiersAnimation();
     }
   
     private void OnDisable() => 
@@ -85,4 +90,16 @@ public class DiceInfoCanvas : MonoBehaviour
       RollDice.OnRollResultGenerated += SaveRollResult;
     private void UnsubscribeRollCallbacks() =>
        RollDice.OnRollResultGenerated -= SaveRollResult;
+
+    private void PlayUIShowModifiersAnimation()
+    {
+        try
+        {
+            _fadeAnimation.Show();
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
 }

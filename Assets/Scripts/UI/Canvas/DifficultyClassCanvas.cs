@@ -7,10 +7,15 @@ public class DifficultyClassCanvas : MonoBehaviour
 
     private IRollDiceService _rollService;
 
+    [Space(10)]
+    [Header("UI Animation")]
+    [SerializeField] private UiFadeAnimation _fadeAnimation;
+
     public void Init()
     {
         GetServiceReference();
         SetDifficultyText();
+        PlayUIShowModifiersAnimation();
     }
 
     private void GetServiceReference() => 
@@ -27,5 +32,17 @@ public class DifficultyClassCanvas : MonoBehaviour
             Debug.Log(e.Message);
         }
         
+    }
+
+    private void PlayUIShowModifiersAnimation()
+    {
+        try
+        {
+            _fadeAnimation.Show();
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 }

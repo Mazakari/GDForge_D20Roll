@@ -146,6 +146,8 @@ GameObject:
   - component: {fileID: 961778879917608935}
   - component: {fileID: 961778879917608932}
   - component: {fileID: 961778879917608933}
+  - component: {fileID: 7800599478823360199}
+  - component: {fileID: 7033574209033531706}
   m_Layer: 5
   m_Name: DifficultyClass_Canvas
   m_TagString: Untagged
@@ -208,8 +210,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4d56ec2909e7a4a9c0266c2e933001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _diceSprite: {fileID: 0}
   _classValueText: {fileID: 961778879335182918}
+  _fadeAnimation: {fileID: 7800599478823360199}
+--- !u!114 &7800599478823360199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961778879917608934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d55de85be5e2e22409eb53c8ff8fdd97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationCanvasGroup: {fileID: 7033574209033531706}
+  _fadeInStep: 0.01
+  _showStartDelay: 2.5
+  _showStartAlpha: 0
+  _hideStartDelay: 0
+  _hideStartAlpha: 1
+--- !u!225 &7033574209033531706
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961778879917608934}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &961778880435892232
 GameObject:
   m_ObjectHideFlags: 0

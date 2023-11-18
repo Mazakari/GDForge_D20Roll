@@ -14,7 +14,7 @@ public class ButtonsCanvas : MonoBehaviour
             ButtonIsActive(_rollDiceButton, true);
             ButtonIsActive(_continueButton, false);
         }
-        catch (System.Exception e)
+        catch (Exception e)
         {
             Debug.Log(e.Message);
         }
