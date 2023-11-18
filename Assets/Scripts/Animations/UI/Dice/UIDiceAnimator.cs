@@ -9,6 +9,8 @@ public class UIDiceAnimator : MonoBehaviour
     private const string DICE_ROLL_BOUNCE_ANIMATION_NAME = "DiceRollBouncing_Animation";
     private readonly int DICE_ROLL_BOUNCE_ANIMATION_HASH = Animator.StringToHash(DICE_ROLL_BOUNCE_ANIMATION_NAME);
 
+    public static event Action OnDiceBounceAnimationEnd;
+
     private void OnEnable() => 
         SubscribeAnimationCallbacks();
 
@@ -47,6 +49,12 @@ public class UIDiceAnimator : MonoBehaviour
 			Debug.Log(e.Message);
 		}
     }
+
+    /// <summary>
+    /// Animation timeline callback on dice bounce is finished
+    /// </summary>
+    private void OnBounceAnimationEnd() => 
+        OnDiceBounceAnimationEnd?.Invoke();
 
     private void SubscribeAnimationCallbacks() =>
     RollDice.OnRollBegin += StartAnimation;

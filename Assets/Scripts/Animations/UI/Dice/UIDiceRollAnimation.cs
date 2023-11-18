@@ -23,12 +23,17 @@ public class UIDiceRollAnimation : MonoBehaviour
     private void OnEnable()
     {
         GetServiceReference();
+        SubscribeAnimationsCallbacks();
 
         ResetCurrentAnimationSpriteIndex();
         SetAnimationSpritesReference();
+
         InitAnumationCoroutine();
         DisableAnimationImage();
     }
+
+    private void OnDisable() => 
+        UnsubscribeAnimationsCallbacks();
 
     public void StartAnimation()
     {
@@ -36,10 +41,6 @@ public class UIDiceRollAnimation : MonoBehaviour
         _active = true;
         StartCoroutine(_animationCoroutine);
     }
-
-    private void GetServiceReference() =>
-       _rollService = AllServices.Container.Single<IRollDiceService>();
-
     private void SetAnimationSpritesReference()
     {
         try
@@ -94,10 +95,6 @@ public class UIDiceRollAnimation : MonoBehaviour
         if (_currentIndex >= _sprites.Length)
         {
             ResetCurrentAnimationSpriteIndex();
-            _active = false;
-
-            OnRollAnimationEnd?.Invoke();
-            DisableAnimationImage();
         }
     }
 
@@ -108,4 +105,18 @@ public class UIDiceRollAnimation : MonoBehaviour
        _image.enabled = true;
     private void DisableAnimationImage() =>
        _image.enabled = false;
+
+    private void StopRollAnimation()
+    {
+        Debug.Log("Bounce animation ended");
+        _active = false;
+        DisableAnimationImage();
+        OnRollAnimationEnd?.Invoke();
+    }
+    private void GetServiceReference() =>
+      _rollService = AllServices.Container.Single<IRollDiceService>();
+    private void SubscribeAnimationsCallbacks() =>
+       UIDiceAnimator.OnDiceBounceAnimationEnd += StopRollAnimation;
+    private void UnsubscribeAnimationsCallbacks() =>
+      UIDiceAnimator.OnDiceBounceAnimationEnd -= StopRollAnimation;
 }
