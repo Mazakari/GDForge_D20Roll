@@ -477,7 +477,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  _modifierUi: {fileID: 3082183177497839568}
 --- !u!114 &3082183177497839568
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class UiFadeAnimation : MonoBehaviour
+public class UiFade_Animation : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _animationCanvasGroup;
 
@@ -20,10 +20,8 @@ public class UiFadeAnimation : MonoBehaviour
 
     private bool _showAnimationRunning = false;
 
-    private void OnEnable()
-    {
+    private void OnEnable() => 
         SubscribeAnimationCallbacks();
-    }
 
     private void OnDisable() => 
         UnsubscribeAnimationCallbacks();

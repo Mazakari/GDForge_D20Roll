@@ -48,8 +48,9 @@ public class DiceSprite : MonoBehaviour
         }
     }
 
-    public void SetModifiedSpriteByIndex(int index)
+    public void SetModifiedSprite()
     {
+        int index = _rollService.RollResult;
         try
         {
             if (index >= _sideSprites.Length)
@@ -96,12 +97,12 @@ public class DiceSprite : MonoBehaviour
     private void SubscribeRollStateCallbacks()
     {
         RollDice.OnRollBegin += DeactivateDiceImage;
-        UIDiceRollAnimation.OnRollAnimationEnd += ActivateDiceImage;
+        UIDiceRoll_Animation.OnRollAnimationEnd += ActivateDiceImage;
     }
     private void UnsubscribeRollStateCallbacks()
     {
         RollDice.OnRollBegin -= DeactivateDiceImage;
-        UIDiceRollAnimation.OnRollAnimationEnd -= ActivateDiceImage;
+        UIDiceRoll_Animation.OnRollAnimationEnd -= ActivateDiceImage;
     }
 
     private void GetServiceReference() =>

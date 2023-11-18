@@ -7,8 +7,6 @@ public interface IRollDiceService : IService
     DiceData_SO DiceSettings { get; }
     int RollResult { get; }
 
-    event Action<int> OnModifierBonusAdded;
-
     void AddModifierBonusToRollResult(int bonus);
     int RollDice();
     void SaveRollResult(int result);

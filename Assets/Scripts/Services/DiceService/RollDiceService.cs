@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 public class RollDiceService : IRollDiceService
 {
@@ -10,8 +9,6 @@ public class RollDiceService : IRollDiceService
     public int RollResult {  get; private set; }
 
     private readonly IGameFactory _gameFactory;
-
-    public event Action<int> OnModifierBonusAdded;
 
     public RollDiceService(IGameFactory gameFactory)
     {
@@ -51,9 +48,8 @@ public class RollDiceService : IRollDiceService
         Debug.Log($"Roll result = {RollResult} + Bonus = {bonus}");
         RollResult += bonus;
         Debug.Log($"Roll+Bonus = {RollResult}");
-        OnModifierBonusAdded?.Invoke(RollResult);
     }
 
     private int GetRollResult() =>
-       UnityEngine.Random.Range(1, DiceSides + 1);
+       Random.Range(1, DiceSides + 1);
 }

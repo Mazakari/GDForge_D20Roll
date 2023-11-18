@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIDiceRollAnimation : MonoBehaviour
+public class UIDiceRoll_Animation : MonoBehaviour
 {
     public static event Action OnRollAnimationEnd;
 

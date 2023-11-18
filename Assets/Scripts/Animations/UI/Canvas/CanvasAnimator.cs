@@ -17,27 +17,22 @@ public class CanvasAnimator : MonoBehaviour
     private void OnDisable() =>
         UnsubscribeCallbacks();
 
-    private void SerSevicesReferences()
-    {
-        _rollDiceService = AllServices.Container.Single<IRollDiceService>();
-        _modifierService = AllServices.Container.Single<IModifierService>();
-    }
+  
 
     private void SubscribeCallbacks()
     {
         RollDice.OnRollBegin += _gameplayCanvas.ButtonsCanvas.DeactivateRollButton;
         RollDice.OnRollBegin += _gameplayCanvas.DiceInfoCanvas.DeactivateHint;
         RollDice.OnRollResultGenerated += _gameplayCanvas.DiceCanvas.SetSprite;
-        UIDiceRollAnimation.OnRollAnimationEnd += AddModifiersBonusToRollResult;
-        _rollDiceService.OnModifierBonusAdded += _gameplayCanvas.DiceCanvas.SetModifierSprite;
-        DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.DiceInfoCanvas.ShowResultText;
-        DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.ButtonsCanvas.ActivateContinueButton;
-    }
-
-    private void AddModifiersBonusToRollResult()
-    {
-        int bonus = _modifierService.TotalBonus;
-        _rollDiceService.AddModifierBonusToRollResult(bonus);
+        UIDiceRoll_Animation.OnRollAnimationEnd += AddModifiersBonusToRollResult;
+        // ToDo Decrease modifiers canvas group alpha by 50%
+        // ToDo Play total bonus value move to dice sprite animation
+        // ToDo Play particles on dice sprite
+        UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd += _gameplayCanvas.DiceCanvas.SetModifierSprite;
+        // ToDo Play particles on show result
+        DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.DiceInfoCanvas.ShowResultText;// ToDo Add DOFade
+        // ToDo Hide modifiers canvas group DOFade
+        DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.ButtonsCanvas.ActivateContinueButton;// ToDo Add DOFade
     }
 
     private void UnsubscribeCallbacks()
@@ -45,11 +40,19 @@ public class CanvasAnimator : MonoBehaviour
         RollDice.OnRollBegin -= _gameplayCanvas.ButtonsCanvas.DeactivateRollButton;
         RollDice.OnRollBegin -= _gameplayCanvas.DiceInfoCanvas.DeactivateHint;
         RollDice.OnRollResultGenerated -= _gameplayCanvas.DiceCanvas.SetSprite;
-        UIDiceRollAnimation.OnRollAnimationEnd -= AddModifiersBonusToRollResult;
-        _rollDiceService.OnModifierBonusAdded -= _gameplayCanvas.DiceCanvas.SetModifierSprite;
+        UIDiceRoll_Animation.OnRollAnimationEnd -= AddModifiersBonusToRollResult;
         DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.DiceInfoCanvas.ShowResultText;
         DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.ButtonsCanvas.ActivateContinueButton;
     }
 
-   
+    private void AddModifiersBonusToRollResult()
+    {
+        int bonus = _modifierService.TotalBonus;
+        _rollDiceService.AddModifierBonusToRollResult(bonus);
+    }
+    private void SerSevicesReferences()
+    {
+        _rollDiceService = AllServices.Container.Single<IRollDiceService>();
+        _modifierService = AllServices.Container.Single<IModifierService>();
+    }
 }

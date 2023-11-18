@@ -14,7 +14,7 @@ public class DiceInfoCanvas : MonoBehaviour
 
     [Space(10)]
     [Header("UI Animation")]
-    [SerializeField] private UiFadeAnimation _fadeAnimation;
+    [SerializeField] private UiFade_Animation _fadeAnimation;
 
     public void Init()
     {
@@ -71,7 +71,7 @@ public class DiceInfoCanvas : MonoBehaviour
     {
         try
         {
-            bool success = _rollService.RollResult > _rollService.RollDifficulty;
+            bool success = _rollService.RollResult >= _rollService.RollDifficulty;
             ShowSucessText(success);
         }
         catch (Exception e)
