@@ -622,30 +622,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4304817531836200860}
     m_Modifications:
-    - target: {fileID: 1917770873940055944, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917770873940055944, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917770873940055944, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917770873940055944, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 120
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917770873940055944, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1917770873940055944, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2774876375955154219, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
       propertyPath: m_Name
       value: Dice_Canvas
@@ -734,9 +710,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9192868504520128534, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 8730171041717368529, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: _pingPong
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730171041717368529, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: _scaleSpeed
+      value: 1.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
@@ -862,6 +842,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1976322115124163457, guid: f961c76c2d10cbd42897aeae984d3d88, type: 3}
+      propertyPath: _pingPong
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1976322115124163457, guid: f961c76c2d10cbd42897aeae984d3d88, type: 3}
+      propertyPath: _scaleSpeed
+      value: 1.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f961c76c2d10cbd42897aeae984d3d88, type: 3}
 --- !u!224 &4304817530900900137 stripped
@@ -887,6 +875,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4304817531836200860}
     m_Modifications:
+    - target: {fileID: 2497590520529706553, guid: 447b8a180ee57ce4b9e0a0738808ce47, type: 3}
+      propertyPath: m_OverrideSorting
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088769706817929231, guid: 447b8a180ee57ce4b9e0a0738808ce47, type: 3}
+      propertyPath: _moveSpeed
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088769706817929231, guid: 447b8a180ee57ce4b9e0a0738808ce47, type: 3}
+      propertyPath: _scaleSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5199234968891437208, guid: 447b8a180ee57ce4b9e0a0738808ce47, type: 3}
       propertyPath: m_Name
       value: TotalBonus_Canvas
@@ -1371,7 +1371,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Buttons_Canvas
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 70056089855612570, guid: af757e86f66934d4c8c14b7dc3434a50, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: af757e86f66934d4c8c14b7dc3434a50, type: 3}
 --- !u!224 &4304817532701604501 stripped
 RectTransform:

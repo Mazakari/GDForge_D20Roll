@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 795315190995699379}
   - component: {fileID: 466374614630417518}
   - component: {fileID: 3524601883241368228}
+  - component: {fileID: 1205775972089786651}
   m_Layer: 5
   m_Name: TotalBonusMoveAnimation
   m_TagString: Untagged
@@ -67,7 +68,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +999
+  m_text: '999
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -76,8 +79,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278198271
-  m_fontColor: {r: 1, g: 0.12332683, b: 0, a: 1}
+    rgba: 4284339455
+  m_fontColor: {r: 1, g: 0.8299829, b: 0.36320752, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -94,8 +97,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 15
+  m_fontSizeBase: 15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -149,6 +152,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _textRectTransform: {fileID: 7092778052909755319}
+  _text: {fileID: 466374614630417518}
+  _effect: {fileID: 1205775972089786651}
   _scaleSpeed: 1
   _targetScale: 2
   _moveSpeed: 2
+--- !u!114 &1205775972089786651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667487422887553643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67f3d78c78d08d041af07daf96f9c552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound: {fileID: 8300000, guid: 9be85c37fde08ed4dbfdab95cd34c6ad, type: 3}

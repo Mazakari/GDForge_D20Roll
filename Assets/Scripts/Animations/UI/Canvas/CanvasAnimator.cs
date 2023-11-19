@@ -25,8 +25,6 @@ public class CanvasAnimator : MonoBehaviour
         RollDice.OnRollBegin += _gameplayCanvas.DiceInfoCanvas.DeactivateHint;
         RollDice.OnRollResultGenerated += _gameplayCanvas.DiceCanvas.SetSprite;
         UIDiceRoll_Animation.OnRollAnimationEnd += AddModifiersBonusToRollResult;
-        // ToDo Decrease modifiers canvas group alpha by 50%
-        // ToDo Play total bonus value move to dice sprite animation
         // ToDo Play particles on dice sprite
         UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd += _gameplayCanvas.DiceCanvas.SetModifierSprite;
         // ToDo Play particles on show result

@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 961778879917608933}
   - component: {fileID: 7800599478823360199}
   - component: {fileID: 7033574209033531706}
+  - component: {fileID: 1976322115124163457}
   m_Layer: 5
   m_Name: DifficultyClass_Canvas
   m_TagString: Untagged
@@ -242,6 +243,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1976322115124163457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961778879917608934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac78fe57ef946bf498c78763ae9be334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _diceImageRectTransform: {fileID: 961778879335182969}
+  _scaleSpeed: 1.5
+  _targetScale: 1.5
+  _pingPong: 0
 --- !u!1 &961778880435892232
 GameObject:
   m_ObjectHideFlags: 0
