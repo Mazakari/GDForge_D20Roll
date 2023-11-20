@@ -29,10 +29,8 @@ public class CanvasAnimator : MonoBehaviour
             UIDiceRoll_Animation.OnRollAnimationEnd += _gameplayCanvas.DiceCanvas.PlayParticles;
             UIDiceRoll_Animation.OnRollAnimationEnd += AddModifiersBonusToRollResult;
 
-            // ToDo Play particles on dice sprite
             UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd += _gameplayCanvas.DiceCanvas.SetModifierSprite;
 
-            // ToDo Play particles on show result
             DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.RollResultCanvas.ShowResultText;
             DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.TotalBonusCanvas.HideTotalBonus;
             DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.ModifiersCanvas.HideModifiers;
@@ -43,7 +41,6 @@ public class CanvasAnimator : MonoBehaviour
             Debug.Log(e.Message);
         }
     }
-
     private void UnsubscribeCallbacks()
     {
         try
@@ -56,11 +53,7 @@ public class CanvasAnimator : MonoBehaviour
             UIDiceRoll_Animation.OnRollAnimationEnd -= _gameplayCanvas.DiceCanvas.PlayParticles;
             UIDiceRoll_Animation.OnRollAnimationEnd -= AddModifiersBonusToRollResult;
 
-            // ToDo Play particles on dice sprite
-
             UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd -= _gameplayCanvas.DiceCanvas.SetModifierSprite;
-
-            // ToDo Play particles on show result
 
             DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.RollResultCanvas.ShowResultText;
             DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.TotalBonusCanvas.HideTotalBonus;

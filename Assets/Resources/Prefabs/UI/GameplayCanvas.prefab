@@ -695,8 +695,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Dexterity Check
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 401ba5d31f50caa45acc10002be9796c, type: 2}
+  m_sharedMaterial: {fileID: -4100713459927475307, guid: 401ba5d31f50caa45acc10002be9796c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -830,8 +830,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sleight of Hand
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 401ba5d31f50caa45acc10002be9796c, type: 2}
+  m_sharedMaterial: {fileID: -4100713459927475307, guid: 401ba5d31f50caa45acc10002be9796c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1905,6 +1905,10 @@ PrefabInstance:
     - target: {fileID: 5368393248068335893, guid: af757e86f66934d4c8c14b7dc3434a50, type: 3}
       propertyPath: m_PixelsPerUnitMultiplier
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482137035431215200, guid: af757e86f66934d4c8c14b7dc3434a50, type: 3}
+      propertyPath: m_Alpha
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 70056089855612570, guid: af757e86f66934d4c8c14b7dc3434a50, type: 3}
