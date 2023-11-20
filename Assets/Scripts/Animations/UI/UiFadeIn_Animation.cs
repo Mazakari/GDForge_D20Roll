@@ -13,6 +13,13 @@ public class UiFadeIn_Animation : MonoBehaviour, IFadeInAnimation
     [SerializeField] private float _hideStartDelay = 0;
     [SerializeField] private float _hideStartAlpha = 1;
 
+    [Space(10)]
+    [Tooltip("Interrupt hide animation on dice roll begin")]
+    [SerializeField] private bool _interruptAnimation = false;
+
+    [Tooltip("Deactivate current game object canvas on hide animation end")]
+    [SerializeField] private bool _deactivateCanvas = false;
+
     private bool _showAnimationRunning = false;
 
     private void OnEnable() =>
@@ -32,13 +39,13 @@ public class UiFadeIn_Animation : MonoBehaviour, IFadeInAnimation
     {
         yield return new WaitForSeconds(_hideStartDelay);
 
-        while (_animationCanvasGroup.alpha > 0)
+        while (_animationCanvasGroup.alpha > 0.01f)
         {
-            _animationCanvasGroup.alpha -= _fadeInStep;
-            yield return new WaitForSeconds(_fadeInStep);
+            _animationCanvasGroup.alpha -= _fadeInStep * Time.deltaTime;
+            yield return null;
         }
 
-        gameObject.SetActive(false);
+        DeactivateCanvas();
     }
 
     private void SetCanvasGroupAlpha(float initValue)
@@ -54,11 +61,28 @@ public class UiFadeIn_Animation : MonoBehaviour, IFadeInAnimation
         }
     }
 
-    private void SubscribeAnimationCallbacks() => 
-        RollDice.OnRollBegin += FinishAnimation;
+    private void DeactivateCanvas()
+    {
+        if (_deactivateCanvas)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 
-    private void UnsubscribeAnimationCallbacks() =>
-       RollDice.OnRollBegin -= FinishAnimation;
+    private void SubscribeAnimationCallbacks()
+    {
+        if (_interruptAnimation)
+        {
+            RollDice.OnRollBegin += FinishAnimation;
+        }
+    }
+    private void UnsubscribeAnimationCallbacks()
+    {
+        if (_interruptAnimation)
+        {
+            RollDice.OnRollBegin -= FinishAnimation;
+        }
+    }
 
     private void FinishAnimation()
     {

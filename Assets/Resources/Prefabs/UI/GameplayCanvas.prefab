@@ -947,6 +947,7 @@ MonoBehaviour:
   _diceCanvas: {fileID: 4304817531111748630}
   _buttonsCanvas: {fileID: 4304817532701604503}
   _diceInfoCanvas: {fileID: 4304817532455920682}
+  _rollResultCanvas: {fileID: 881933495379036460}
   _difficultyCanvas: {fileID: 4304817530900900139}
   _modifiersCanvas: {fileID: 3253880715236051404}
 --- !u!114 &195671836492564883
@@ -1715,6 +1716,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 284b314ba77e8a348ab4a7d91b035fb9, type: 3}
+--- !u!114 &881933495379036460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7454186003846684764, guid: 284b314ba77e8a348ab4a7d91b035fb9, type: 3}
+  m_PrefabInstance: {fileID: 7732636005604157808}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc0cdb308145664ebb1c810d386ae74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &4304817532455920680 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5832759405741264216, guid: 284b314ba77e8a348ab4a7d91b035fb9, type: 3}

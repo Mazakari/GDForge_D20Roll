@@ -37,7 +37,6 @@ public class UiFadeOut_Animation : MonoBehaviour, IFadeOutAnimation
         {
             _animationCanvasGroup.alpha += _fadeInStep * Time.deltaTime;
             yield return null;
-            //yield return new WaitForSeconds(_fadeInStep);
         }
     }
 

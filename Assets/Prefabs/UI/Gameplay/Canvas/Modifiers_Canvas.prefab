@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 5666871741774148099}
   - component: {fileID: 1822675548868411703}
   - component: {fileID: 6170572750814976799}
+  - component: {fileID: -7165721302993710037}
   m_Layer: 5
   m_Name: Modifiers_Canvas
   m_TagString: Untagged
@@ -112,7 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _contentParent: {fileID: 5020285910823270757}
-  _fadeAnimation: {fileID: 6170572750814976799}
+  _showFadeAnimation: {fileID: 6170572750814976799}
+  _hideFadeAnimation: {fileID: -7165721302993710037}
 --- !u!225 &1822675548868411703
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -141,6 +143,22 @@ MonoBehaviour:
   _fadeInStep: 0.5
   _showStartDelay: 0.2
   _showStartAlpha: 0
+--- !u!114 &-7165721302993710037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354884921844930470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b5ab007ed1f9834aa52110da371b7d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animationCanvasGroup: {fileID: 1822675548868411703}
+  _fadeInStep: 0.5
+  _hideStartDelay: 0
+  _hideStartAlpha: 1
 --- !u!1 &6863463538472865318
 GameObject:
   m_ObjectHideFlags: 0

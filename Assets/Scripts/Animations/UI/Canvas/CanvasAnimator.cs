@@ -17,8 +17,6 @@ public class CanvasAnimator : MonoBehaviour
     private void OnDisable() =>
         UnsubscribeCallbacks();
 
-  
-
     private void SubscribeCallbacks()
     {
         RollDice.OnRollBegin += _gameplayCanvas.ButtonsCanvas.DeactivateRollButton;
@@ -28,7 +26,7 @@ public class CanvasAnimator : MonoBehaviour
         // ToDo Play particles on dice sprite
         UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd += _gameplayCanvas.DiceCanvas.SetModifierSprite;
         // ToDo Play particles on show result
-        DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.DiceInfoCanvas.ShowResultText;// ToDo Add DOFade
+        DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.RollResultCanvas.ShowResultText;// ToDo Add DOFade
         // ToDo Hide modifiers canvas group DOFade
         DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.ButtonsCanvas.ActivateContinueButton;// ToDo Add DOFade
     }
@@ -39,7 +37,7 @@ public class CanvasAnimator : MonoBehaviour
         RollDice.OnRollBegin -= _gameplayCanvas.DiceInfoCanvas.DeactivateHint;
         RollDice.OnRollResultGenerated -= _gameplayCanvas.DiceCanvas.SetSprite;
         UIDiceRoll_Animation.OnRollAnimationEnd -= AddModifiersBonusToRollResult;
-        DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.DiceInfoCanvas.ShowResultText;
+        DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.RollResultCanvas.ShowResultText;
         DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.ButtonsCanvas.ActivateContinueButton;
     }
 

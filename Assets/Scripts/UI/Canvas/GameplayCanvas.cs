@@ -12,6 +12,9 @@ public class GameplayCanvas : MonoBehaviour
     public DiceInfoCanvas DiceInfoCanvas => _diceInfoCanvas;
     [SerializeField] private DiceInfoCanvas _diceInfoCanvas;
 
+    public RollResultCanvas RollResultCanvas => _rollResultCanvas;
+    [SerializeField] private RollResultCanvas _rollResultCanvas;
+
     [SerializeField] private DifficultyClassCanvas _difficultyCanvas;
     [SerializeField] private ModifiersCanvas _modifiersCanvas;
 
@@ -26,6 +29,7 @@ public class GameplayCanvas : MonoBehaviour
             _buttonsCanvas.Init();
             _difficultyCanvas.Init();
             _diceInfoCanvas.Init();
+            _rollResultCanvas.Init();
             _modifiersCanvas.Init();
         }
         catch (Exception e)

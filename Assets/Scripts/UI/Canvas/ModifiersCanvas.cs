@@ -10,8 +10,8 @@ public class ModifiersCanvas : MonoBehaviour
 
     [Space(10)]
     [Header("UI Animation")]
-    [SerializeField] private UiFadeOut_Animation _fadeAnimation;
-
+    [SerializeField] private UiFadeOut_Animation _showFadeAnimation;
+    [SerializeField] private UiFadeIn_Animation _hideFadeAnimation;
 
     public void Init()
     {
@@ -27,6 +27,18 @@ public class ModifiersCanvas : MonoBehaviour
 		{
 			Debug.Log(e.Message);
 		}
+    }
+
+    public void PlayUIHideModifiersAnimation()
+    {
+        try
+        {
+            _hideFadeAnimation.Hide();
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 
     private void GetActiveModifiersCollection() => 
@@ -47,7 +59,7 @@ public class ModifiersCanvas : MonoBehaviour
     {
         try
         {
-            _fadeAnimation.Show();
+            _showFadeAnimation.Show();
         }
         catch (System.Exception e)
         {
