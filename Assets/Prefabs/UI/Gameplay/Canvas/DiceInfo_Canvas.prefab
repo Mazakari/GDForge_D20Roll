@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 5832759405741264216}
   - component: {fileID: 5832759405741264217}
   - component: {fileID: 5832759405741264218}
-  - component: {fileID: 7908738442407506914}
+  - component: {fileID: 8262557391179953965}
   m_Layer: 5
   m_Name: DiceInfo_Canvas
   m_TagString: Untagged
@@ -404,8 +404,8 @@ MonoBehaviour:
   _rollResult: {fileID: 5832759404815538364}
   _successText: {fileID: 5832759405144953716}
   _failText: {fileID: 5832759406168206422}
-  _fadeAnimation: {fileID: 7908738442407506914}
---- !u!114 &7908738442407506914
+  _fadeAnimation: {fileID: 8262557391179953965}
+--- !u!114 &8262557391179953965
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -414,15 +414,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5832759405741264167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d55de85be5e2e22409eb53c8ff8fdd97, type: 3}
+  m_Script: {fileID: 11500000, guid: a7bc4e31f052f29409417387d9fb12a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _animationCanvasGroup: {fileID: 6277875252860480617}
-  _fadeInStep: 0.01
-  _showStartDelay: 1.5
+  _fadeInStep: 0.5
+  _showStartDelay: 0.5
   _showStartAlpha: 0
-  _hideStartDelay: 0
-  _hideStartAlpha: 1
 --- !u!1 &5832759405800896269
 GameObject:
   m_ObjectHideFlags: 0

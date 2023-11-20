@@ -10,7 +10,7 @@ public class ModifiersCanvas : MonoBehaviour
 
     [Space(10)]
     [Header("UI Animation")]
-    [SerializeField] private UiFade_Animation _fadeAnimation;
+    [SerializeField] private UiFadeOut_Animation _fadeAnimation;
 
 
     public void Init()

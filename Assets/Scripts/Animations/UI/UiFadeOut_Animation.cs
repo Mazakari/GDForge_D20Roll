@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class UiFade_Animation : MonoBehaviour
+public class UiFadeOut_Animation : MonoBehaviour, IFadeOutAnimation
 {
     [SerializeField] private CanvasGroup _animationCanvasGroup;
 
@@ -12,11 +12,6 @@ public class UiFade_Animation : MonoBehaviour
     [Header("Show Animation Settings")]
     [SerializeField] private float _showStartDelay = 0;
     [SerializeField] private float _showStartAlpha = 0;
-
-    [Space(10)]
-    [Header("Hide Animation Settings")]
-    [SerializeField] private float _hideStartDelay = 0;
-    [SerializeField] private float _hideStartAlpha = 1;
 
     private bool _showAnimationRunning = false;
 
@@ -33,13 +28,6 @@ public class UiFade_Animation : MonoBehaviour
         StartCoroutine(FadeOut());
     }
 
-    public void Hide()
-    {
-        _showAnimationRunning = false;
-        SetCanvasGroupAlpha(_hideStartAlpha);
-        StartCoroutine(FadeIn());
-    }
-
     private IEnumerator FadeOut()
     {
         gameObject.SetActive(true);
@@ -47,22 +35,10 @@ public class UiFade_Animation : MonoBehaviour
 
         while (_animationCanvasGroup.alpha < 1f)
         {
-            _animationCanvasGroup.alpha += _fadeInStep;
-            yield return new WaitForSeconds(_fadeInStep);
+            _animationCanvasGroup.alpha += _fadeInStep * Time.deltaTime;
+            yield return null;
+            //yield return new WaitForSeconds(_fadeInStep);
         }
-    }
-
-    private IEnumerator FadeIn()
-    {
-        yield return new WaitForSeconds(_hideStartDelay);
-
-        while (_animationCanvasGroup.alpha > 0)
-        {
-            _animationCanvasGroup.alpha -= _fadeInStep;
-            yield return new WaitForSeconds(_fadeInStep);
-        }
-
-        gameObject.SetActive(false);
     }
 
     private void SetCanvasGroupAlpha(float initValue)
