@@ -49,8 +49,6 @@ public class RollResultCanvas : MonoBehaviour
             _successText.gameObject.SetActive(success);
             _failText.gameObject.SetActive(!success);
 
-            // To Do fade out anim
-            //_rollResult.SetActive(true);
             PlayShowAnimation();
         }
         catch (Exception e)

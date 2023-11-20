@@ -45,6 +45,7 @@ public class UiFadeIn_Animation : MonoBehaviour, IFadeInAnimation
             yield return null;
         }
 
+        SetCanvasGroupAlpha(0);
         DeactivateCanvas();
     }
 
@@ -56,7 +57,6 @@ public class UiFadeIn_Animation : MonoBehaviour, IFadeInAnimation
         }
         catch (Exception e)
         {
-
             Debug.Log(e.Message);
         }
     }

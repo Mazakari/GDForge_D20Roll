@@ -19,26 +19,48 @@ public class CanvasAnimator : MonoBehaviour
 
     private void SubscribeCallbacks()
     {
-        RollDice.OnRollBegin += _gameplayCanvas.ButtonsCanvas.DeactivateRollButton;
-        RollDice.OnRollBegin += _gameplayCanvas.DiceInfoCanvas.DeactivateHint;
-        RollDice.OnRollResultGenerated += _gameplayCanvas.DiceCanvas.SetSprite;
-        UIDiceRoll_Animation.OnRollAnimationEnd += AddModifiersBonusToRollResult;
-        // ToDo Play particles on dice sprite
-        UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd += _gameplayCanvas.DiceCanvas.SetModifierSprite;
-        // ToDo Play particles on show result
-        DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.RollResultCanvas.ShowResultText;// ToDo Add DOFade
-        // ToDo Hide modifiers canvas group DOFade
-        DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.ButtonsCanvas.ActivateContinueButton;// ToDo Add DOFade
+        try
+        {
+            RollDice.OnRollBegin += _gameplayCanvas.ButtonsCanvas.DeactivateRollButton;
+            RollDice.OnRollBegin += _gameplayCanvas.DiceInfoCanvas.PlayHideAnimation;
+
+            RollDice.OnRollResultGenerated += _gameplayCanvas.DiceCanvas.SetSprite;
+            UIDiceRoll_Animation.OnRollAnimationEnd += AddModifiersBonusToRollResult;
+            // ToDo Play particles on dice sprite
+            UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd += _gameplayCanvas.DiceCanvas.SetModifierSprite;
+            // ToDo Play particles on show result
+            DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.RollResultCanvas.ShowResultText;
+            DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.TotalBonusCanvas.HideTotalBonus;
+            DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.ModifiersCanvas.HideModifiers;
+            DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.ButtonsCanvas.ShowContinueButton;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 
     private void UnsubscribeCallbacks()
     {
-        RollDice.OnRollBegin -= _gameplayCanvas.ButtonsCanvas.DeactivateRollButton;
-        RollDice.OnRollBegin -= _gameplayCanvas.DiceInfoCanvas.DeactivateHint;
-        RollDice.OnRollResultGenerated -= _gameplayCanvas.DiceCanvas.SetSprite;
-        UIDiceRoll_Animation.OnRollAnimationEnd -= AddModifiersBonusToRollResult;
-        DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.RollResultCanvas.ShowResultText;
-        DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.ButtonsCanvas.ActivateContinueButton;
+        try
+        {
+            RollDice.OnRollBegin -= _gameplayCanvas.ButtonsCanvas.DeactivateRollButton;
+            RollDice.OnRollBegin -= _gameplayCanvas.DiceInfoCanvas.PlayHideAnimation;
+
+            RollDice.OnRollResultGenerated -= _gameplayCanvas.DiceCanvas.SetSprite;
+            UIDiceRoll_Animation.OnRollAnimationEnd += AddModifiersBonusToRollResult;
+            // ToDo Play particles on dice sprite
+            UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd -= _gameplayCanvas.DiceCanvas.SetModifierSprite;
+            // ToDo Play particles on show result
+            DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.RollResultCanvas.ShowResultText;
+            DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.TotalBonusCanvas.HideTotalBonus;
+            DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.ModifiersCanvas.HideModifiers;
+            DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.ButtonsCanvas.ShowContinueButton;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+        }
     }
 
     private void AddModifiersBonusToRollResult()

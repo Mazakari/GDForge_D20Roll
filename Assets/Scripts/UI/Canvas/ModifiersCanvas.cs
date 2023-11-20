@@ -20,7 +20,7 @@ public class ModifiersCanvas : MonoBehaviour
             SetServiceReference();
             GetActiveModifiersCollection();
             ConstructActiveModifiersData();
-            PlayUIShowModifiersAnimation();
+            PlayShowAnimation();
 
         }
         catch (System.Exception e)
@@ -29,7 +29,7 @@ public class ModifiersCanvas : MonoBehaviour
 		}
     }
 
-    public void PlayUIHideModifiersAnimation()
+    public void HideModifiers()
     {
         try
         {
@@ -55,7 +55,7 @@ public class ModifiersCanvas : MonoBehaviour
         }
     }
 
-    private void PlayUIShowModifiersAnimation()
+    private void PlayShowAnimation()
     {
         try
         {

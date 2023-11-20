@@ -950,6 +950,7 @@ MonoBehaviour:
   _rollResultCanvas: {fileID: 881933495379036460}
   _difficultyCanvas: {fileID: 4304817530900900139}
   _modifiersCanvas: {fileID: 3253880715236051404}
+  _totalBonusCanvas: {fileID: 4133549587922535947}
 --- !u!114 &195671836492564883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1506,6 +1507,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5199234968891437209, guid: 447b8a180ee57ce4b9e0a0738808ce47, type: 3}
   m_PrefabInstance: {fileID: 5575426745653944145}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4133549587922535947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8359442212634728794, guid: 447b8a180ee57ce4b9e0a0738808ce47, type: 3}
+  m_PrefabInstance: {fileID: 5575426745653944145}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1565ab63eed73b344beec634a07420ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7173353044082834383
 PrefabInstance:
   m_ObjectHideFlags: 0

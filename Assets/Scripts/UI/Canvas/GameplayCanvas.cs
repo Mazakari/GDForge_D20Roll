@@ -16,7 +16,12 @@ public class GameplayCanvas : MonoBehaviour
     [SerializeField] private RollResultCanvas _rollResultCanvas;
 
     [SerializeField] private DifficultyClassCanvas _difficultyCanvas;
+
+    public ModifiersCanvas ModifiersCanvas => _modifiersCanvas;
     [SerializeField] private ModifiersCanvas _modifiersCanvas;
+
+    public TotalBonusCanvas TotalBonusCanvas => _totalBonusCanvas;
+    [SerializeField] private TotalBonusCanvas _totalBonusCanvas;
 
     void OnEnable() => 
         InitCanvases();

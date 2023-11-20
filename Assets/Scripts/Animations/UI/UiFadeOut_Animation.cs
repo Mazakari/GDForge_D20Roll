@@ -38,6 +38,8 @@ public class UiFadeOut_Animation : MonoBehaviour, IFadeOutAnimation
             _animationCanvasGroup.alpha += _fadeInStep * Time.deltaTime;
             yield return null;
         }
+
+        SetCanvasGroupAlpha(1f);
     }
 
     private void SetCanvasGroupAlpha(float initValue)
@@ -48,7 +50,6 @@ public class UiFadeOut_Animation : MonoBehaviour, IFadeOutAnimation
         }
         catch (Exception e)
         {
-
             Debug.Log(e.Message);
         }
     }

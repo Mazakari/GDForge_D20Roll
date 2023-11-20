@@ -13,7 +13,6 @@ public class UiModifierTextMove_Animation : MonoBehaviour
     [Header("Audio Effects Settings")]
     [SerializeField] private UI_AudioEffect _effect;
 
-
     [Space(10)]
     [Header("Animation Scale Settings")]
     [SerializeField] private float _scaleSpeed = 2f;
