@@ -40,6 +40,7 @@ public class UiModifierTextMove_Animation : MonoBehaviour
     {
         CacheMovementTargetPosition();
         SetTotalBonusCounter();
+       
         StartCoroutine(StartAnimationScript());
     }
 

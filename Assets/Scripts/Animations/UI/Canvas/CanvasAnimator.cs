@@ -25,9 +25,13 @@ public class CanvasAnimator : MonoBehaviour
             RollDice.OnRollBegin += _gameplayCanvas.DiceInfoCanvas.PlayHideAnimation;
 
             RollDice.OnRollResultGenerated += _gameplayCanvas.DiceCanvas.SetSprite;
+
+            UIDiceRoll_Animation.OnRollAnimationEnd += _gameplayCanvas.DiceCanvas.PlayParticles;
             UIDiceRoll_Animation.OnRollAnimationEnd += AddModifiersBonusToRollResult;
+
             // ToDo Play particles on dice sprite
             UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd += _gameplayCanvas.DiceCanvas.SetModifierSprite;
+
             // ToDo Play particles on show result
             DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.RollResultCanvas.ShowResultText;
             DiceSprite.OnModifiedSpriteSet += _gameplayCanvas.TotalBonusCanvas.HideTotalBonus;
@@ -48,10 +52,16 @@ public class CanvasAnimator : MonoBehaviour
             RollDice.OnRollBegin -= _gameplayCanvas.DiceInfoCanvas.PlayHideAnimation;
 
             RollDice.OnRollResultGenerated -= _gameplayCanvas.DiceCanvas.SetSprite;
-            UIDiceRoll_Animation.OnRollAnimationEnd += AddModifiersBonusToRollResult;
+
+            UIDiceRoll_Animation.OnRollAnimationEnd -= _gameplayCanvas.DiceCanvas.PlayParticles;
+            UIDiceRoll_Animation.OnRollAnimationEnd -= AddModifiersBonusToRollResult;
+
             // ToDo Play particles on dice sprite
+
             UiModifierTextMove_Animation.OnTotalBonusMoveAnimationEnd -= _gameplayCanvas.DiceCanvas.SetModifierSprite;
+
             // ToDo Play particles on show result
+
             DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.RollResultCanvas.ShowResultText;
             DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.TotalBonusCanvas.HideTotalBonus;
             DiceSprite.OnModifiedSpriteSet -= _gameplayCanvas.ModifiersCanvas.HideModifiers;

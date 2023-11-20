@@ -1143,6 +1143,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4304817531836200860}
     m_Modifications:
+    - target: {fileID: 2359670310250010002, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2774876375955154219, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
       propertyPath: m_Name
       value: Dice_Canvas
@@ -1238,6 +1242,50 @@ PrefabInstance:
     - target: {fileID: 2774876375955154221, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
       propertyPath: m_OverrideSorting
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3665276255359535164, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3932970775544533978, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089190317460508646, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_ResetScaleOnEnable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089190317460508646, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_Particles.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089190317460508646, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_Particles.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089190317460508646, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_Particles.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089190317460508646, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_Particles.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5089190317460508646, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_Particles.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6695783125334196038, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031950702303969594, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031950702303969595, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8730171041717368529, guid: 1e508c4a8865a394d8023bbdbf414124, type: 3}
       propertyPath: _pingPong

@@ -4,6 +4,11 @@ public class DiceCanvas : MonoBehaviour
 {
     [SerializeField] private DiceSprite _diceSprite;
 
+    [Space(10)]
+    [Header("Particles Effects")]
+    [SerializeField] private UI_ParticlesEffect _particlesEffect;
+
+
     public void Init()
     {
 		try
@@ -26,4 +31,16 @@ public class DiceCanvas : MonoBehaviour
 
     public void SetModifierSprite() =>
     _diceSprite.SetModifiedSprite();
+
+    public void PlayParticles()
+    {
+        try
+        {
+            _particlesEffect.PlayEffect();
+        }
+        catch (System.Exception e)
+        {
+            Debug.Log(e.Message);
+        }
+    }
 }

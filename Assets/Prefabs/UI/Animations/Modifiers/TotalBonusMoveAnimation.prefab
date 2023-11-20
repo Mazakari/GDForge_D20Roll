@@ -154,6 +154,7 @@ MonoBehaviour:
   _textRectTransform: {fileID: 7092778052909755319}
   _text: {fileID: 466374614630417518}
   _effect: {fileID: 1205775972089786651}
+  _particlesEffect: {fileID: 0}
   _scaleSpeed: 1
   _targetScale: 2
   _moveSpeed: 2
