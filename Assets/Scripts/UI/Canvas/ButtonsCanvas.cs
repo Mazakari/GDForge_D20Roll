@@ -14,9 +14,15 @@ public class ButtonsCanvas : MonoBehaviour
     public void Init() => 
         SetInitButtonsStates();
 
+    /// <summary>
+    /// Отключает кнопу броска кубика
+    /// </summary>
     public void DeactivateRollButton() =>
        ButtonIsActive(_rollDiceButton, false);
 
+    /// <summary>
+    /// Начинает плавную анимацию появления кнопки
+    /// </summary>
     public void ShowContinueButton()
     {
         try
@@ -30,6 +36,11 @@ public class ButtonsCanvas : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Меняет текущее состояние кнопки на новое
+    /// </summary>
+    /// <param name="button">Ссылка на кнопку</param>
+    /// <param name="isActive">Новое состояние кнопки</param>
     private void ButtonIsActive(Button button, bool isActive)
     {
         try
@@ -42,6 +53,10 @@ public class ButtonsCanvas : MonoBehaviour
             Debug.Log(e.Message);
         }
     }
+
+    /// <summary>
+    /// Устанавливает состояния кнопок в исходное состояние
+    /// </summary>
     private void SetInitButtonsStates()
     {
         try

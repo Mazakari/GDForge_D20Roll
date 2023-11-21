@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Сервис для хранения информации по текущим модификаторам и их бонуса
+/// </summary>
 public class ModifierService : IModifierService
 {
     public int TotalBonus {  get; private set; }
@@ -16,6 +19,11 @@ public class ModifierService : IModifierService
 
         InitService();
     }
+
+    /// <summary>
+    /// Метод инициализирует переданный модификатор соответствующими данными из Static Data
+    /// </summary>
+    /// <param name="modifier">Модификатор для инициализации</param>
     public void ConstructModifier(Modifier modifier)
     {
         for (int i = 0; i < _modifiersData.Length; i++)
@@ -27,6 +35,10 @@ public class ModifierService : IModifierService
         }
     }
 
+    /// <summary>
+    /// Устанавливает ссылку на коллекцию текущих модификаторов
+    /// </summary>
+    /// <param name="activeModifiers">Коллекция текущих модификаторов</param>
     public void SetActiveModifiers(Modifier[] activeModifiers)
     {
         try
@@ -39,6 +51,11 @@ public class ModifierService : IModifierService
         }
         
     }
+
+    /// <summary>
+    /// Суммирует общий бонус со всех текущих модификаторов
+    /// </summary>
+    /// <returns></returns>
     public int GetTotalModifiersBonus()
     {
         int total = 0;
@@ -52,17 +69,29 @@ public class ModifierService : IModifierService
         return total;
     }
 
+
     private void InitService()
     {
         try
         {
-            _modifiersData = _gameFactory.GetModifiersStaticData(AssetPath.MODIFIERS_STATIC_DATA_FOLDER);
+            GetModifiersStaticData();
         }
         catch (System.Exception e)
         {
             Debug.Log(e.Message);
         }
     }
+
+    /// <summary>
+    /// Получат коллекцию Static Data для всех существующих модификаторов
+    /// </summary>
+    private void GetModifiersStaticData() => 
+        _modifiersData = _gameFactory.GetModifiersStaticData(AssetPath.MODIFIERS_STATIC_DATA_FOLDER);
+
+    /// <summary>
+    /// Устанавливает значение для общей суммы всех модификаторо
+    /// </summary>
+    /// <param name="total">Общая сумма бонусов всех модификаторов</param>
     private void SetTotalBonus(int total) => 
         TotalBonus = total;
 }

@@ -23,11 +23,16 @@ public class RollResultCanvas : MonoBehaviour
         GetServicesReferences();
     }
 
+    /// <summary>
+    /// Запускает анимацию плавного появления текста с результатом проверки броска
+    /// </summary>
     public void ShowResultText()
     {
         try
         {
-            GetRollResult();
+            bool success = IsRollResultSuccessful();
+            ShowSucessText(success);
+            PlayShowAnimation();
         }
         catch (Exception e)
         {
@@ -36,20 +41,23 @@ public class RollResultCanvas : MonoBehaviour
         }
     }
 
-    private void GetRollResult()
-    {
-        bool success = _rollService.RollResult >= _rollService.RollDifficulty;
-        ShowSucessText(success);
-    }
+    /// <summary>
+    /// Проверяет прошел ли бросок проверку сложности
+    /// </summary>
+    /// <returns>true, если бросок успешен, иначе false</returns>
+    private bool IsRollResultSuccessful() =>
+        _rollService.RollResult >= _rollService.RollDifficulty;
 
+    /// <summary>
+    /// Активирует текст с результатом проверки сложности броска кубика
+    /// </summary>
+    /// <param name="success">Значение с результатом проверки</param>
     private void ShowSucessText(bool success)
     {
         try
         {
             _successText.gameObject.SetActive(success);
             _failText.gameObject.SetActive(!success);
-
-            PlayShowAnimation();
         }
         catch (Exception e)
         {
@@ -60,6 +68,10 @@ public class RollResultCanvas : MonoBehaviour
     private void GetServicesReferences() =>
        _rollService = AllServices.Container.Single<IRollDiceService>();
 
+    /// <summary>
+    /// Сохраняет результат проверки в сервисе
+    /// </summary>
+    /// <param name="result">Результат броска кубика</param>
     private void SaveRollResult(int result) =>
        _rollService.SaveRollResult(result);
 
@@ -68,6 +80,9 @@ public class RollResultCanvas : MonoBehaviour
     private void UnsubscribeRollCallbacks() =>
        RollDice.OnRollResultGenerated -= SaveRollResult;
 
+    /// <summary>
+    /// Запускает анимацию плавного появления текста с результатом проверки броска кубика
+    /// </summary>
     private void PlayShowAnimation()
     {
         try

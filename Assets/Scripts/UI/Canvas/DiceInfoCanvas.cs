@@ -13,6 +13,9 @@ public class DiceInfoCanvas : MonoBehaviour
     public void Init() => 
         PlayShowAnimation();
 
+    /// <summary>
+    /// Проигрывает плавную анимацию исчезания подсказки броска кубика
+    /// </summary>
     public void PlayHideAnimation()
     {
         try
@@ -25,6 +28,9 @@ public class DiceInfoCanvas : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Проигрывает плавную анимацию появления подсказки броска кубика
+    /// </summary>
     private void PlayShowAnimation()
     {
         try

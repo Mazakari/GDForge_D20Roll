@@ -23,15 +23,25 @@ public class DiceCanvas : MonoBehaviour
 		}
     }
 
+    /// <summary>
+    /// Устанавливает спрайт с нужной стороной
+    /// </summary>
+    /// <param name="rollResult">Результат броска кубика</param>
     public void SetSprite(int rollResult)
     {
         int spriteIndex = rollResult - 1;
         _diceSprite.SetSpriteByIndex(spriteIndex);
     }
 
+    /// <summary>
+    /// Устанавливает спрайт, с учетом бонуса от модификаторов
+    /// </summary>
     public void SetModifierSprite() =>
     _diceSprite.SetModifiedSprite();
 
+    /// <summary>
+    /// Проигрывает визуальный эффект
+    /// </summary>
     public void PlayParticles()
     {
         try

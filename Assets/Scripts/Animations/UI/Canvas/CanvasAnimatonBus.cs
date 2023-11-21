@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class CanvasAnimator : MonoBehaviour
+public class CanvasAnimatonBus : MonoBehaviour
 {
     [SerializeField] private GameplayCanvas _gameplayCanvas;
 
@@ -65,6 +65,7 @@ public class CanvasAnimator : MonoBehaviour
             Debug.Log(e.Message);
         }
     }
+
 
     private void AddModifiersBonusToRollResult()
     {

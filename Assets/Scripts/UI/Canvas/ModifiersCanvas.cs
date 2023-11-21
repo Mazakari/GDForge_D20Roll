@@ -29,6 +29,9 @@ public class ModifiersCanvas : MonoBehaviour
 		}
     }
 
+    /// <summary>
+    /// Запускает анимацию плавного исчезновения панели с модификаторами
+    /// </summary>
     public void HideModifiers()
     {
         try
@@ -41,12 +44,19 @@ public class ModifiersCanvas : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Получает ссылку на коллекцию текущих модификаторов
+    /// </summary>
     private void GetActiveModifiersCollection() => 
         Modifiers = _contentParent.GetComponentsInChildren<Modifier>();
+
 
     private void SetServiceReference() => 
         _modifierService = AllServices.Container.Single<IModifierService>();
 
+    /// <summary>
+    /// Заполняет все активные модификаторы данными из Static Data
+    /// </summary>
     private void ConstructActiveModifiersData()
     {
         foreach (Modifier modifier in Modifiers)
@@ -55,6 +65,9 @@ public class ModifiersCanvas : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Запускает анимацию плавного появления панели с модификаторами
+    /// </summary>
     private void PlayShowAnimation()
     {
         try

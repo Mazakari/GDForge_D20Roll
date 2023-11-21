@@ -15,12 +15,15 @@ public class DifficultyClassCanvas : MonoBehaviour
     {
         GetServiceReference();
         SetDifficultyText();
-        PlayUIShowModifiersAnimation();
+        PlayShowAnimation();
     }
 
     private void GetServiceReference() => 
         _rollService = AllServices.Container.Single<IRollDiceService>();
 
+    /// <summary>
+    /// Устанавливает новое значение сложности для проверки броска кубика
+    /// </summary>
     private void SetDifficultyText()
     {
         try
@@ -34,7 +37,10 @@ public class DifficultyClassCanvas : MonoBehaviour
         
     }
 
-    private void PlayUIShowModifiersAnimation()
+    /// <summary>
+    /// Проигрывает анимацию плавного появления текста сложности броска
+    /// </summary>
+    private void PlayShowAnimation()
     {
         try
         {
